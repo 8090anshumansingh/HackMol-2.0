@@ -1,0 +1,144 @@
+<%- include('partials/header') %>
+<% try{ %>
+  <div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <img src="https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-round-icon-vector-illustration-graphic-design-135443422.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h1 class="title"><%=Peer%></h1>
+                <h6>STUDENT</h6>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description text-center">
+          <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile-tabs">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/askQuery">
+                    <i class="material-icons">camera</i>
+                    Ask Your Query
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/askedByPeers">
+                    <i class="fas fa-user-graduate"></i>
+                    Answer Peers Queries
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/askedByMe">
+                    <i class="fas fa-tasks"></i>
+                    Queries Asked By You
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/answeredByMe">
+                    <i class="material-icons">favorite</i>
+                    Queries Answered By You
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br><br><br>
+          <!-- //queries -->
+          <% if(queries.length==0){ %>
+          <div style="margin-left: 400px;" class="row container-fluid text-center">
+            <h3 class="title" style="text-align: center;">No Queries are Asked by You!!</h3>
+          </div>
+          <% } else { %>
+          <div style="margin-left: 400px;" class="row container-fluid text-center">
+
+            <h3 class="title" style="text-align: center; margin-top:50px;">Queries Asked by You</h3>
+          </div>
+          <% var i = 0; %>
+          <% queries.forEach(function(q){ %>
+          <% if(s[i].query==="No"){  %>
+          <div class=" tab-pane active text-center gallery  shadow-lg p-3 mb-5 bg-white rounded" id="studio">
+            <div class="row">
+              <div class="col-md-9 ml-auto mr-auto">
+                <div class="card " style="width: 1000px; height:225px;">
+                  <div class="row no-gutters">
+                    <div class="col-sm-4">
+                      <img class="card-img" src="https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Ymxhbmt8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Suresh Dasari Card">
+                    </div>
+                    <div class="col-sm-7">
+                      <div class="card-body" style="text-align:left;">
+                        <h5 class=" text-muted">No one answered this query!!</h5><br />
+                      <h4>Q) <%=q.query%></h4><br>
+                  </div>
+                  <div class="card-footer bottom">
+                    <span style="height:40px; width:200px; padding:10px; font-size:1.25rem;"class="badge badge-info">No Answeres Found</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } else {  %>
+          <div class="tab-pane active text-center gallery  shadow-lg p-3 mb-5 bg-white rounded" id="studio">
+            <div class="row">
+              <div class="col-md-9 ml-auto mr-auto">
+                <div class="card" style="width: 1000px; height:500px;">
+                  <div class="row no-gutters">
+                    <div class="col-sm-4">
+                      <img class="card-img" src="https://images.unsplash.com/photo-1547413749-3e0c1ba70695?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHwxfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Suresh Dasari Card">
+                    </div>
+                    <div class="col-sm-7">
+                      <div class="card-header text-muted" style="text-align:left;">
+                        <h5>Answered By: <%=s[i].answeredBy%></h5><br>
+                      </div>
+                      <div class="card-body" style="text-align: left;">
+                        <h5>Q) <%=s[i].query%></h5><br>
+                        <h4><strong><%=s[i].solution%></strong></h4>
+                        <!-- <hr> -->
+                        <% if(s[i].liked==true) { %>
+                           <div class="card-footer bottom">
+                             <span style="height:40px; width:100px; padding:10px; font-size:1.25rem;"class="badge badge-success">Liked</span>
+                           </div>
+                          <% } else { %>
+                            <div class="card-footer bottom">
+                              <% const ha = "/like/"+s[i]._id; const hb = "/dislike/"+s[i]._id; %>
+                              <!-- <span type="button" style="height:40px; width:100px; padding:10px; font-size:1.25rem;" class="badge badge-success">Liked</span> -->
+                              <a class="btn btn-outline-success btn-lg" href=<%=ha%> role="button">Like</a>
+                              <a class="btn btn-outline-dark btn-lg" style="margin-left: 10px;" href=<%=hb%> role="button">Dislike</a><br><br>
+                            </div>
+                        <%  } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+          <% i++;});} %>
+          <!-- Queries Over -->
+        </div>
+        <br><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% } catch(error){ %>
+<%  if(error) %>
+  <script>
+location.reload(true/false);
+</script>
+<% } %>
+<%- include('partials/footer') %>

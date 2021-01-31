@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Queries</title>
+    <head>
+        <base href="/">
+        <link rel="icon" href="../Images/icon.PNG">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+        <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="css/styles3.css">
+    </head>
+    <body class="profile-page">
+        <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg "  color-on-scroll="100"  id="sectionsNav">
+            <div class="container">
+                <div class="navbar-translate">
+                    <a class="navbar-brand" href="/" style="font-size: 40px;" target="_blank"><strong>Queries</strong></a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                          <a href= "/profile/<%=Peer%>" style="font-size: 20px;" class="nav-link" aria-expanded="false">
+                              Profile
+                          </a>
+                        </li>
+                        <li class="nav-item">
+      				          	<a class="nav-link" style="font-size: 20px;" href="/profile/:Peer" target="_blank"> <%= Coins %>
+                          <i class="fa fa-coins"></i></a>
+      				          </li>
+                        <li class="nav-item">
+                          <a href="/offers" style="font-size: 20px;" class="nav-link" aria-expanded="false">
+                              Redeem
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="/logout" style="font-size: 20px;" class="nav-link" aria-expanded="false">
+                              Logout
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
